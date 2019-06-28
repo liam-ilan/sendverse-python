@@ -1,0 +1,21 @@
+{
+  "name": "sendverse",
+  "version": "1.0.0",
+  "description": "A public chatting room for everyone.",
+  "main": "main.py",
+  "scripts": {
+    "start": "python main.py",
+    "lint": "npx eslint ./src --fix",
+    "js": "npx webpack --config webpack.config.js"
+  },
+  "author": "Liam Ilan",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5"
+  },
+  "dependencies": {}
+}
