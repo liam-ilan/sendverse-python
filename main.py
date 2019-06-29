@@ -1,3 +1,6 @@
+import eventlet
+eventlet.monkey_patch()
+
 from flask import Flask, request, redirect, url_for, send_from_directory, jsonify
 from flask_socketio import SocketIO
 
@@ -31,7 +34,6 @@ def chatroom(path):
     # listen to messages in this namespace
     @socketio.on('message', namespace='/' + path)
     def handle_message(json):
-      print('received json: ' + str(json))
       socketio.emit('message', json, namespace='/' + path, broadcast=True, include_self=False)
   
     @socketio.on('disconnect')
@@ -51,4 +53,5 @@ def handle_count():
 def static_js(folder, path):
   return app.send_static_file(folder + '/' + path)
 
-socketio.run(app, debug=True)
+if __name__ == '__main__':
+  socketio.run(app, debug=True)
